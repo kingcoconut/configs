@@ -1,0 +1,56 @@
+[alias]
+  a = add
+  amend = commit --amend
+  b = branch
+  ba = branch -a
+  br = branch -r
+  back = checkout -
+  cm = commit
+  co = checkout
+  com = checkout master
+  ctags = !.git/hooks/ctags
+  d = diff
+  dc = diff --check
+  dno = diff --name-only
+  ds = diff --staged
+  dstat = diff --stat
+  du = !git d $(git upstream)
+  f = fetch
+  ff = merge --ff-only
+  ffu = !git ff $(git upstream)
+  files = diff --name-only master...head
+  filesacmr = diff --name-only master...head --diff-filter=ACMR
+  filescp = !git diff --name-only master...head | pbcopy
+  head = log -1
+  l = log
+  l1 = log -1
+  lb = log --oneline master..
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)%d %C(black) %an, %cr%Creset'
+  lo = log --oneline
+  ls = log --oneline -n20
+  mb = merge-base
+  mbm = merge-base master head
+  p = pull
+  rbimbm = !git rebase -i $(git mbm)
+  s = status
+  sh = show
+  shno = show --pretty='format:' --name-only
+  shstat = show --stat
+  touch = !git commit --amend --date $(isodate)
+  unstage = reset HEAD
+  upstream = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+[color]
+  ui = auto
+[color "diff"]
+  meta = blue
+  frag = cyan
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = xander.groeneveld
+	email = xander.groeneveld@gmail.com
+	name = Xander
+[core]
+	editor = sublime -n -w
